@@ -1,7 +1,7 @@
 Samurai
 =======
 
-This is an example application using the [Samurai PHP client library](https://github.com/FeeFighters/samurai-example-php).
+This is an example application using the [Samurai PHP client library](https://github.com/FeeFighters/samurai-client-php).
 
 Installation
 ------------
@@ -20,19 +20,14 @@ You need to tell the client library what your Samurai keys are by defining const
 Edit the samurai_credentials.php file in the client-example-php folder.
 
     <?
-      define( 'SAMURAI_PROCESSOR_TOKEN', 'CHANGE TO YOUR PROCESSOR TOKEN' );
-      define( 'SAMURAI_MERCHANT_KEY', 'CHANGE TO YOUR MERCHANT KEY' );
-      define( 'SAMURAI_MERCHANT_PASSWORD', 'CHANGE TO YOUR MERCHANT PASSWORD' );
-      define( 'SAMURAI_LIB_DIRECTORY', dirname(__DIR__).'/samurai-client-php' );
+      define( 'SAMURAI_PROCESSOR_TOKEN',    'CHANGE TO YOUR PROCESSOR TOKEN' );
+      define( 'SAMURAI_MERCHANT_KEY',       'CHANGE TO YOUR MERCHANT KEY' );
+      define( 'SAMURAI_MERCHANT_PASSWORD',  'CHANGE TO YOUR MERCHANT PASSWORD' );
+      define( 'SAMURAI_LIB_DIRECTORY',      dirname(__DIR__).'/samurai-client-php' );
     ?>
 
-Payment Methods
+Test Credit Cards
 ---------------
-
-A Payment Method is created each time a user stores their billing information
-in Samurai. 
-
-### Test Credit Cards
 
 You can use any of the following test cards to test the example app:
 
