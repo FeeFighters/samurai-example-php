@@ -54,7 +54,7 @@
       /**
        * Example of a simple purchase
        */
-        $samurai_response = $samurai_transaction->purchase( $samurai_processor );
+      $samurai_response = $samurai_transaction->purchase( $samurai_processor );
       
       /**
        * Example of an authorization + capture
