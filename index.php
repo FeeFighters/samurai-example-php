@@ -29,7 +29,7 @@
   input.error { border: 1px solid red; }
 </style>
 
-<form action="https://samurai.feefighters.com/v1/payment_methods" method="POST">
+<form action="https://api.samurai.feefighters.com/v1/payment_methods" method="POST">
   <fieldset>
     <input name="redirect_url" type="hidden" value="<?= sprintf( 'http%s://%s%s', $_SERVER['REMOTE_ADDR']==443?'s':null, $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI'] ); ?>" />
     <input name="merchant_key" type="hidden" value="<?= SAMURAI_MERCHANT_KEY; ?>" />
