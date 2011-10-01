@@ -6,8 +6,6 @@
      * Include the Samurai library and initialize required settings
      */
     require_once SAMURAI_LIB_DIRECTORY.'/Samurai.php';
-    Samurai::$merchant_key = SAMURAI_MERCHANT_KEY;
-    Samurai::$merchant_password = SAMURAI_MERCHANT_PASSWORD;
 
     /**
      * Retrive the associated payment method by token
