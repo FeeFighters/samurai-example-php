@@ -18,7 +18,7 @@
       /**
        * The the sensitive data is valid, then a valid payment method has been stored
        */
-      printf( '<p style="color:green;">Successful payment method: %s</p>'."<br />", $samurai_payment_method->getToken() );
+      printf( '<p class="success">Successful payment method: %s</p>', $samurai_payment_method->getToken() );
 
       /**
        * Call retain on the payment method to store it in Samurai's vault
@@ -97,11 +97,12 @@
 
   } catch ( SamuraiException $e ) {
 
-    printf( "<p style='font-weight:bold; color:red'>Caught Samurai Exception: %s</p><br />", $e->getMessage() );
+    printf( "<p class='error'>Caught Samurai Exception: %s<br>", $e->getMessage() );
     $samurai_messages = $e->getSamuraiMessages();
     foreach ( $samurai_messages as $i => $samurai_message )
-      printf( "<p>%d. %s [ %s / %s / %s ]</p><br />", $i+1, $samurai_message->getMessage(), $samurai_message->getClass(), $samurai_message->getContext(), $samurai_message->getKey() );
+      printf( "<strong>%d.</strong> %s [ %s / %s / %s ]<br>", $i+1, $samurai_message->getMessage(), $samurai_message->getClass(), $samurai_message->getContext(), $samurai_message->getKey() );
 
+    echo '</p>';
     /**
      * It is recommended that you log this error as something wrong has occurred.
      */
