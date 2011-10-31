@@ -1,4 +1,4 @@
-<?
+<?php
 
   try {
 
@@ -97,7 +97,7 @@
 
   } catch ( SamuraiException $e ) {
 
-    printf( "<p style='font-weight:bold'>Caught Samurai Exception: %s</p><br />", $e->getMessage() );
+    printf( "<p style='font-weight:bold; color:red'>Caught Samurai Exception: %s</p><br />", $e->getMessage() );
     $samurai_messages = $e->getSamuraiMessages();
     foreach ( $samurai_messages as $i => $samurai_message )
       printf( "<p>%d. %s [ %s / %s / %s ]</p><br />", $i+1, $samurai_message->getMessage(), $samurai_message->getClass(), $samurai_message->getContext(), $samurai_message->getKey() );
