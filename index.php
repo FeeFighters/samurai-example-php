@@ -33,7 +33,8 @@
   <fieldset>
     <input name="redirect_url" type="hidden" value="<?= sprintf( 'http%s://%s%s', $_SERVER['REMOTE_ADDR']==443?'s':null, $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI'] ); ?>" />
     <input name="merchant_key" type="hidden" value="<?= SAMURAI_MERCHANT_KEY; ?>" />
-
+    <input name="sandbox" type="hidden" value="<?= $samurai_payment_method ? $samurai_payment_method->getSandbox() : true; ?>" />
+    
     <!-- Before populating the custom parameter, remember to escape reserved xml characters 
          like <, > and & into their safe counterparts like &lt;, &gt; and &amp; -->
     <input name="custom" type="hidden" value="" />
@@ -45,7 +46,7 @@
     <input id="credit_card_last_name" name="credit_card[last_name]" type="text" value="<?= $samurai_payment_method ? $samurai_payment_method->getLastName() : null; ?>" />
 
     <label for="credit_card_address_1">Address 1</label>
-    <input id="credit_card_address_1" name="credit_card[address_1]" type="text" value="<?= $samurai_payment_method ? $samurai_payment_method->getAddress1() : null; ?>" />
+    <input id="credit_card_address_1" name="credit_card[address_1]" type="text" value="<?= $samurai_payment_method ? $samurai_payment_method->getAddress1() : '1000 1st Av'; ?>" />
 
     <label for="credit_card_address_2">Address 2</label>
     <input id="credit_card_address_2" name="credit_card[address_2]" type="text" value="<?= $samurai_payment_method ? $samurai_payment_method->getAddress2() : null; ?>" />
@@ -57,20 +58,13 @@
     <input id="credit_card_state" name="credit_card[state]" type="text" value="<?= $samurai_payment_method ? $samurai_payment_method->getState() : null; ?>" />
 
     <label for="credit_card_zip">Zip</label>
-    <input id="credit_card_zip" name="credit_card[zip]" type="text" value="<?= $samurai_payment_method ? $samurai_payment_method->getZip() : null; ?>" />
-
-    <label for="credit_card_card_type">Card Type</label>
-    <select id="credit_card_card_type" name="credit_card[card_type]">
-      <option></option>
-      <option value="visa" <?= $samurai_payment_method && $samurai_payment_method->getCardType() == 'visa' ? 'selected="selected"' : null; ?>>Visa</option>
-      <option value="master"<?= $samurai_payment_method && $samurai_payment_method->getCardType() == 'master' ? 'selected="selected"' : null; ?>>MasterCard</option>
-    </select>
+    <input id="credit_card_zip" name="credit_card[zip]" type="text" value="<?= $samurai_payment_method ? $samurai_payment_method->getZip() : '10101'; ?>" />
 
     <label for="credit_card_card_number" class="<?= array_key_exists('card_number',$errors) ? 'error' : null; ?>">Card Number</label>
     <input id="credit_card_card_number" name="credit_card[card_number]" type="text" class="<?= array_key_exists('card_number',$errors) ? 'error' : null; ?>" value="4111111111111111" />
 
     <label for="credit_card_verification_value" class="<?= array_key_exists('cvv',$errors) ? 'error' : null; ?>">Security Code</label>
-    <input id="credit_card_verification_value" name="credit_card[cvv]" type="text" class="<?= array_key_exists('cvv',$errors) ? 'error' : null; ?>" value="123" />
+    <input id="credit_card_verification_value" name="credit_card[cvv]" type="text" class="<?= array_key_exists('cvv',$errors) ? 'error' : null; ?>" value="111" />
 
     <label for="credit_card_month">Expiration Month</label>
     <? $months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ); ?>
