@@ -1,12 +1,17 @@
 <?php
+	define( 'SAMURAI_LIB_DIRECTORY', dirname(__DIR__).'/samurai-client-php' );
 
-  define( 'SAMURAI_PROCESSOR_TOKEN', 'CHANGE TO YOUR PROCESSOR TOKEN' );
-  define( 'SAMURAI_MERCHANT_KEY', 'CHANGE TO YOUR MERCHANT KEY' );
-  define( 'SAMURAI_MERCHANT_PASSWORD', 'CHANGE TO YOUR MERCHANT PASSWORD' );
+	require_once SAMURAI_LIB_DIRECTORY.'/lib/Samurai.php';
 
-  define( 'SAMURAI_LIB_DIRECTORY', dirname(__DIR__).'/samurai-client-php' );
+	define( 'SAMURAI_PROCESSOR_TOKEN', 'SAMURAI_PROCESSOR_TOKEN' );
+	define( 'SAMURAI_MERCHANT_KEY', 'SAMURAI_MERCHANT_KEY' );
+	define( 'SAMURAI_MERCHANT_PASSWORD', 'SAMURAI_MERCHANT_PASSWORD' );
 
-  if ( SAMURAI_PROCESSOR_TOKEN == 'CHANGE TO YOUR PROCESSOR TOKEN' )
-    die( 'You need to change the samurai configuration variables in samurai_credentials.php' );
+	Samurai::setup(array(
+	    'merchantKey'      => SAMURAI_MERCHANT_KEY,
+	    'merchantPassword' => SAMURAI_MERCHANT_PASSWORD,
+	    'processorToken'   => SAMURAI_PROCESSOR_TOKEN
+	));
+
 
 ?>

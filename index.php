@@ -4,6 +4,8 @@
    * Include your samurai credentials
    */
   require_once __DIR__.'/samurai_credentials.php';
+	require_once __DIR__.'/samurai-client-php/lib/Samurai.php';
+	
 
   /**
    * $errors will be populated with errors with the input of the credit card form
@@ -39,32 +41,32 @@
       <fieldset>
         <input name="redirect_url" type="hidden" value="<?php echo sprintf( 'http%s://%s%s', $_SERVER['REMOTE_ADDR']==443?'s':null, $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI'] ); ?>">
         <input name="merchant_key" type="hidden" value="<?php echo SAMURAI_MERCHANT_KEY; ?>">
-        <input name="sandbox" type="hidden" value="<?php echo $samurai_payment_method ? $samurai_payment_method->getSandbox() : 'true'; ?>">
+        <input name="sandbox" type="hidden" value="<?php echo $samurai_payment_method ? $samurai_payment_method->sandbox : 'true'; ?>">
 
         <!-- Before populating the custom parameter, remember to escape reserved xml characters 
              like <, > and & into their safe counterparts like &lt;, &gt; and &amp; -->
         <input name="custom" type="hidden" value="" />
 
         <label for="credit_card_first_name">First name</label>
-        <input id="credit_card_first_name" name="credit_card[first_name]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->getFirstName() : null; ?>" autofocus>
+        <input id="credit_card_first_name" name="credit_card[first_name]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->first_name : null; ?>" autofocus>
 
         <label for="credit_card_last_name">Last name</label>
-        <input id="credit_card_last_name" name="credit_card[last_name]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->getLastName() : null; ?>">
+        <input id="credit_card_last_name" name="credit_card[last_name]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->last_name : null; ?>">
 
         <label for="credit_card_address_1">Address 1</label>
-        <input id="credit_card_address_1" name="credit_card[address_1]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->getAddress1() : null; ?>">
+        <input id="credit_card_address_1" name="credit_card[address_1]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->address_1 : null; ?>">
 
         <label for="credit_card_address_2">Address 2</label>
-        <input id="credit_card_address_2" name="credit_card[address_2]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->getAddress2() : null; ?>">
+        <input id="credit_card_address_2" name="credit_card[address_2]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->address_2 : null; ?>">
 
         <label for="credit_card_city">City</label>
-        <input id="credit_card_city" name="credit_card[city]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->getCity() : null; ?>">
+        <input id="credit_card_city" name="credit_card[city]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->city : null; ?>">
 
         <label for="credit_card_state">State</label>
-        <input id="credit_card_state" name="credit_card[state]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->getState() : null; ?>">
+        <input id="credit_card_state" name="credit_card[state]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->state : null; ?>">
 
         <label for="credit_card_zip">Zip</label>
-        <input id="credit_card_zip" name="credit_card[zip]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->getZip() : null; ?>">
+        <input id="credit_card_zip" name="credit_card[zip]" type="text" value="<?php echo $samurai_payment_method ? $samurai_payment_method->zip : null; ?>">
 
         <label for="credit_card_card_number" class="<?php echo array_key_exists('card_number',$errors) ? 'error' : null; ?>">Card Number</label>
         <input id="credit_card_card_number" name="credit_card[card_number]" type="text" class="<?php echo array_key_exists('card_number',$errors) ? 'error' : null; ?>" value="4111111111111111">
@@ -76,14 +78,14 @@
         <?php $months = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ); ?>
         <select name="credit_card[expiry_month]" id="credit_card_expiry_month">
         <?php foreach ( $months as $i => $month ): $i++; ?>
-          <option value="<?php echo $i; ?>" <?php echo $samurai_payment_method && $samurai_payment_method->getExpiryMonth() == $i ? 'selected="selected"' : null; ?>><?php printf('%02d',$i); ?> - <?php echo $month; ?></option>
+          <option value="<?php echo $i; ?>" <?php echo $samurai_payment_method && $samurai_payment_method->expiry_month == $i ? 'selected="selected"' : null; ?>><?php printf('%02d',$i); ?> - <?php echo $month; ?></option>
         <?php endforeach; ?>
         </select>
 
         <select name="credit_card[expiry_year]">
         <?php $last = date( 'Y' ) + 10; ?>
         <?php for ( $year=date('Y'); $year<$last; $year++ ): ?>
-          <option value="<?php echo $year; ?>" <?php echo $samurai_payment_method && $samurai_payment_method->getExpiryYear() == $year ? 'selected="selected"' : null; ?>><?php echo $year; ?></option>
+          <option value="<?php echo $year; ?>" <?php echo $samurai_payment_method && $samurai_payment_method->expiry_year == $year ? 'selected="selected"' : null; ?>><?php echo $year; ?></option>
         <?php endfor; ?>
         </select>
       </fieldset>
