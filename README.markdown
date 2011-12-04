@@ -1,7 +1,7 @@
-Samurai
-=======
+Samurai PHP Example Application
+===============================
 
-This is an example application using the [Samurai PHP client library](https://github.com/FeeFighters/samurai-client-php).
+This is an example PHP application using the [Samurai PHP client library](https://github.com/FeeFighters/samurai-client-php).
 
 Installation
 ------------
@@ -13,19 +13,6 @@ Install the Samurai example app by doing the following:
 
 Otherwise, download the .tar.gz or .zip archives
 
-Configuration
--------------
-
-You need to tell the client library what your Samurai keys are by defining constants:
-Edit the samurai_credentials.php file in the client-example-php folder.
-
-    <?php
-      define( 'SAMURAI_PROCESSOR_TOKEN',    'CHANGE TO YOUR PROCESSOR TOKEN' );
-      define( 'SAMURAI_MERCHANT_KEY',       'CHANGE TO YOUR MERCHANT KEY' );
-      define( 'SAMURAI_MERCHANT_PASSWORD',  'CHANGE TO YOUR MERCHANT PASSWORD' );
-      define( 'SAMURAI_LIB_DIRECTORY',      dirname(__DIR__).'/samurai-client-php' );
-    ?>
-
 Test Credit Cards
 ---------------
 
@@ -34,4 +21,5 @@ You can use any of the following test cards to test the example app:
     4111111111111111
     6011000000000012
 
-The CVV can be any 3 or 4 digit number
+For information about the various parameters you can use to trigger
+specific processor responses, see the [Developer Sandbox](https://samurai.feefighters.com/developers/sandbox) page.
