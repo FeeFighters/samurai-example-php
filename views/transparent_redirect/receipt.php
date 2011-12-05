@@ -11,7 +11,7 @@
       <tbody>
         <tr>
           <td>1</td>
-          <td><img src="/images/nunchucks.jpg" width="40" height="40" class="left cleaner">Transparent Redirect Nunchucks</td>
+          <td><img src="<?php echo PUBLIC_PATH ?>/images/nunchucks.jpg" width="40" height="40" class="left cleaner">Transparent Redirect Nunchucks</td>
           <td>$  22.00</td>
         </tr>
         <tr>
@@ -29,7 +29,7 @@
   </section>
 
   <footer>
-    <a href="/" class="back">Back to the Samurai Weapons</a>
+		<a href="<?php echo PUBLIC_PATH ?>" class="back">Back to the Samurai Weapons</a>
   </footer>
 </div>
 

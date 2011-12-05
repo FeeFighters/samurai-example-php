@@ -1,11 +1,12 @@
 <?php
 
-# Purchase action for Samurai.js
-# ------------------------------
-#
-# * payment_method_token is POST'd via AJAX
-# * Responds with a JSON transaction object
-#
+/* Purchase action for Samurai.js
+ * ------------------------------
+ *
+ * - payment_method_token is POST'd via AJAX
+ * - Responds with a JSON transaction object
+ *
+ */
 
 require_once dirname(__FILE__) . '/../config.php';
 
