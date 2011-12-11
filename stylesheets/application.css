@@ -1081,7 +1081,128 @@ p.buttons .button:first-child {
 /* =============================================================================
    Branding and Layout-specific styles
    ========================================================================== */
+#samurai-branding {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: #232d33 url("../images/base/bg-cross-stitch-ondark.png") repeat 50% 50%;
+  color: #f5f4f2;
+  height: 70px;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5); }
+  #samurai-branding .wrapper {
+    position: relative;
+    height: 70px; }
+  #samurai-branding hgroup {
+    margin-top: 10px;
+    line-height: 50px; }
+  #samurai-branding .logo {
+    float: left;
+    width: 352px;
+    height: 50px;
+    margin: 0 8px 0 0;
+    text-indent: -9999px; }
+    #samurai-branding .logo a {
+      float: left;
+      width: 352px;
+      height: 50px;
+      background: url("../images/base/samurai-logo.png") no-repeat 0 0; }
+  #samurai-branding .separator {
+    position: relative;
+    top: -3px;
+    font-size: 23px;
+    width: 20px;
+    text-align: center;
+    opacity: 0.2;
+    font: sans-serif;
+    margin-left: 3px; }
+  #samurai-branding .subtitle {
+    clear: none;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 48px;
+    color: white;
+    font-weight: normal;
+    font-size: 26px; }
+  #samurai-branding .developers-link {
+    position: absolute;
+    right: 108px;
+    bottom: 30px;
+    color: #e1e1e1;
+    opacity: 0.7;
+    text-decoration: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-font-smoothing: antialiased; }
+    #samurai-branding .developers-link .icon {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 4px;
+      width: 18px;
+      height: 18px;
+      background: url("../images/base/sprite-button-icons.png") no-repeat -1px -293px;
+      opacity: 0.5;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s; }
+    #samurai-branding .developers-link:hover {
+      opacity: 1; }
+      #samurai-branding .developers-link:hover .icon {
+        opacity: 1; }
+  #samurai-branding .language {
+    position: absolute;
+    width: 98px;
+    height: 248px;
+    right: 0;
+    bottom: 12px;
+    background: url("../images/bg-language-label.png") no-repeat 0 100%;
+    text-align: center;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
+    #samurai-branding .language:hover {
+      bottom: -168px; }
+    #samurai-branding .language .current {
+      position: absolute;
+      overflow: hidden;
+      bottom: 11px;
+      width: 78px;
+      margin-left: 10px;
+      height: 57px;
+      text-align: center;
+      color: #e1e1e1;
+      font: normal 18px/74px Futura, "Trebuchet MS", "Helvetica Neue", sans-serif;
+      text-decoration: none;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s; }
+      #samurai-branding .language .current:hover {
+        color: #fff; }
+    #samurai-branding .language .choices {
+      list-style: none;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      margin: 0 0 0 10px;
+      padding: 0 0 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font: 14px Futura, "Trebuchet MS", "Helvetica Neue", sans-serif; }
+      #samurai-branding .language .choices li {
+        width: 78px;
+        margin-bottom: 4px; }
+      #samurai-branding .language .choices a {
+        color: #e1e1e1; }
+        #samurai-branding .language .choices a:hover {
+          color: #fff; }
+
 #banner {
+  margin-top: 70px;
   position: relative;
   height: 181px;
   background: url("../images/bg-header-panel.png") repeat-x 50% 0; }
@@ -1097,7 +1218,7 @@ p.buttons .button:first-child {
   padding: 0 160px;
   margin-top: -9px;
   background: transparent url("../images/bg-content.png") repeat-y 50% 0; }
-  #content h1 {
+  #content h1, #content header {
     margin-top: 0;
     margin-bottom: 0;
     padding: 24px 160px 40px;
@@ -1105,6 +1226,13 @@ p.buttons .button:first-child {
     width: 460px;
     margin-left: -160px;
     background: transparent url("../images/bg-heading-with-separator.png") repeat-y 50% 100%; }
+  #content header h4 {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 26px;
+    margin: 0; }
   #content section {
     width: 460px;
     margin-left: -160px;
@@ -1350,4 +1478,3 @@ p.buttons .button:first-child {
 .receipt h2 {
   margin-top: 0;
   text-align: center; }
-
