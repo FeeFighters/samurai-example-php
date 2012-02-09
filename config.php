@@ -7,7 +7,6 @@ define('PUBLIC_PATH', determinePublicPath());
 require_once ROOT_PATH . '/../samurai-client-php/lib/Samurai.php';
 
 Samurai::setup(array(
-  'sandbox'          => true,
   'merchantKey'      => 'a1ebafb6da5238fb8a3ac9f6',
   'merchantPassword' => 'ae1aa640f6b735c4730fbb56',
   'processorToken'   => '5a0e1ca1e5a11a2997bbf912'

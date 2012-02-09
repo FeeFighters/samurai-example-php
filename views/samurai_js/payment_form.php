@@ -8,7 +8,6 @@ ob_start(); ?>
   // Initialize Samurai.js.
   Samurai.init({
 		merchant_key: '<?php echo Samurai::$merchantKey ?>',
-    sandbox: true,
     debug: true
   });
 
@@ -32,7 +31,7 @@ ob_start(); ?>
           } else {
             // Let the error handler scan the response object for errors,
             // then display these errors
-            Samurai.PaymentErrorHandler.for($('form').get(0)).handleErrorsFromResponse(transaction);
+            Samurai.PaymentErrorHandler.forForm($('form').get(0)).handleErrorsFromResponse(transaction);
           }
         });
       });    
