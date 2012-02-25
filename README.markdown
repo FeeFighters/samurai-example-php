@@ -8,8 +8,8 @@ Installation
 
 Install the Samurai example app by doing the following:
 
-    git clone git@github.com:FeeFighters/samurai-client-php.git
-    git clone git@github.com:FeeFighters/samurai-example-php.git
+    git clone git://github.com/FeeFighters/samurai-client-php.git
+    git clone git://github.com/FeeFighters/samurai-example-php.git
 
 Otherwise, download the .tar.gz or .zip archives
 
